@@ -1,0 +1,203 @@
+layout.slogan=Koogan - all your business, simply.
+layout.footer.content=All right reserved Koogan 2012
+layout.back=Back to homepage
+format.datepicker=yy-mm-dd
+
+
+# Menu items
+menu.index=Index
+menu.dashboard=Dashboard
+menu.activity=Activity
+menu.account=Account
+menu.contact=Customer
+menu.calendar=Calendar
+menu.invoices=Invoices
+menu.quotes=Quotes
+menu.help=Help
+menu.login=Login
+menu.connectedAs=Connected as
+menu.top.logout=Logout
+menu.top.account=My account
+menu.top.settings=My configuration
+menu.back.to.index=Back to homepage
+
+menu.right.last_activities=Recent activities
+menu.right.last_added=Last
+menu.right.last_added.invoices=Invoices
+menu.right.last_added.accounts=Accounts
+menu.right.last_added.contacts=Contacts
+menu.right.calendar=Calendar
+menu.search.title=Search
+
+menu.quickadd.title=Quick add
+menu.quickadd.add_account=Add an account
+menu.quickadd.add_contact=Add a contact
+menu.quickadd.add_quote=Add a quote
+menu.quickadd.add_invoice=Add an invoice
+menu.quickadd.add_event=Add an event
+
+# Index page
+index.intro.definition.title=What is Koogan ?
+index.intro.definition=<b>Koogan</b> is a complete and simple application to manage the everyday tasks of a small company. This tool allows you to handle customers, invoices, quotes, meetings, etc...
+index.intro.development.title=When will Koogan be available ?
+index.intro.development=Koogan is currently under development. It is too soon to give a release date, but we'll make sure to inform you on this page.
+index.intro.changelog.title=Changelog
+
+# Dashboard page
+dashboard.intro.development=The dashboard is currently under development. The data and charts available on this page are fake.
+
+
+# Help page
+help.form.name=Your name
+help.form.email=Your email
+help.form.message=Your message
+help.form.send=Send your message
+help.form.error=Please, fill in all the fields
+help.form.success=Your message was successfully sent.
+
+help.message.intro=You just received a new message from Koogan.
+help.message.sent_this_message=sent you this message:
+help.message.subject=Message about Koogan from 
+
+### Activities Pages ###
+activity.title=Activities management
+activity.buttons.list=Activities list
+activity.buttons.add=Add an activity
+
+### Account Pages ###
+account.title=Account management
+account.buttons.list=Accounts list
+account.buttons.add=Ajouter un compte
+account.buttons.modify=Modifier ce compte
+account.buttons.delete=Supprimer ce compte
+account.buttons.or=ou
+account.buttons.return=Retourner à la liste des comptes
+
+account.show.details=Détails de ce compte
+account.show.quotes=Devis
+account.show.invoices=Factures
+account.show.activities=Activités
+account.show.name=Nom
+account.show.status=Status
+account.show.salesProcess=Etape du contact
+
+account.list.name=Nom du compte
+account.list.status=Status du compte
+account.list.actions=Actions
+
+account.add.name=Nom
+account.add.status=Status
+account.add.salesProcess=Etape du contact
+account.add.or=ou
+account.add.return=Retourner à la liste des comptes
+
+
+# Contact Pages
+
+contact.title=Contacts management
+contact.buttons.add=Ajouter un contact
+contact.buttons.delete=Supprimer ce contact
+contact.buttons.modify=Modifier ce contact
+contact.buttons.list=Liste des contacts
+contact.buttons.or=ou
+contact.buttons.return=Retourner à la liste des contacts
+
+contact.add.name=Nom
+contact.add.firstname=Prénom
+contact.add.lastname=Nom de famille
+contact.add.associatedaccount=Compte associé
+contact.add.account=Compte
+contact.add.address=Adresse
+contact.add.postalCode=Code postal
+contact.add.city=Ville
+contact.add.country=Pays
+contact.add.email=Email
+contact.add.phoneNumber=Numéro de téléphone
+contact.add.cellphoneNumber=Numéro de portable
+contact.add.faxNumber=Numéro de fax
+contact.add.comments=Notes
+
+contact.list.name=Nom du contact
+contact.list.phone_number=Numéro de téléphone du contact
+contact.list.email=Courriel du contact
+contact.list.account=Compte associé au contact
+contact.list.actions=Actions
+
+contact.show.details=Détails de ce contact
+contact.show.quotes=Devis
+contact.show.invoices=Factures
+contact.show.history=Historique
+
+# Invoices pages
+invoice.title=Gestion des factures
+invoice.buttons.list=Liste des factures
+invoice.buttons.add=Ajouter une facture
+invoice.buttons.modify=Modifier cette facture
+invoice.buttons.delete=Supprimer cette facture
+invoice.buttons.add.invoice_line=Ajouter une ligne de facturation
+
+invoice.add.invoiceNumber=Numéro de facture
+invoice.add.dateCreated=Date de facturation
+invoice.add.contact=Contact
+invoice.add.invoice_line=Ligne de facturation
+invoice.add.invoice_line.description=Désignation du produit ou service
+invoice.add.invoice_line.quantity=Quantité
+invoice.add.invoice_line.unitPrice=Prix unitaire
+invoice.add.totalAmount=Montant total
+invoice.add.comments=Commentaire
+invoice.add.or=ou
+invoice.add.return=Annuler et retourner à la liste des factures
+
+invoice.show.invoiceNumber=Facture #%s du %s
+invoice.show.number
+
+
+invoice.list.invoiceNumber=Numéro de facture
+invoice.list.dateCreated=Date de facturation
+invoice.list.contact=Contact
+invoice.list.amount=Montant
+invoice.list.totalAmount=Montant total
+invoice.list.invoiceDetails=Lignes de facturation
+invoice.list.comments=Commentaire
+invoice.list.actions=Actions
+
+### VALIDATION ###
+validation.required=Champ requis
+validation.email=Email invalide
+
+### Landing page ###
+landing.head.slogan=Koogan - all your business, simply.
+landing.head.contact=Software made in France
+landing.slider.titleh1=All your activities in one single place.
+landing.slider.freetryout=Try Koogan for free, no obligation
+landing.slider.your_name=Your name
+landing.slider.your_email=Your email
+landing.slider.button.register=Free tryout
+landing.slider.button.register2=No credit card needed
+landing.slider.button.login=Login
+landing.slider.button.login2=Already a member ?
+landing.slider.titleh3=Take advantage of the web !
+landing.slider.description=Koogan is an complete online software, available wherever you want. Koogan adapts to your needs, you pay only what you use.
+landing.slider.advantage1=Available wherever you are
+landing.slider.advantage2=No installation required
+landing.slider.advantage3=Manage all your activities in one software
+landing.slider.advantage4=Web access 100&#37; secure
+landing.slider.advantage5=Automatic daily backups
+landing.slider.advantage6=Control your expenses
+landing.slider.advantage7=Un support technique disponible et réactif
+
+landing.feature.1.title=Simple use
+landing.feature.2.title=Complete software
+landing.feature.3.title=Expenses controlled
+landing.feature.4.title=High security
+
+landing.feature.1.description=Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing, has et omnesque honestatis philosopia.
+landing.feature.2.description=Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing, has et omnesque honestatis philosopia.
+landing.feature.3.description=Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing, has et omnesque honestatis philosopia.
+landing.feature.4.description=Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing, has et omnesque honestatis philosopia.
+
+
+# ENUMS
+enum.status.PROSPECT=Prospect
+enum.status.ACTIF=Actif
+enum.status.INACTIF=Inactif

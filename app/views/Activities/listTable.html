@@ -1,0 +1,36 @@
+	
+			
+<table class="datatable">
+	<thead>
+		<tr>
+			<th>&{'invoice.list.invoiceNumber'}</th>
+			<th>&{'invoice.list.dateCreated'}</th>
+			<th>&{'invoice.list.contact'}</th>
+			<th>&{'invoice.list.actions'}</th>
+		</tr>
+	</thead>
+	<tbody>
+		#{list invoices, as:'invoice'}
+		<tr class="gradeX">
+			<td><a href="@{Invoices.show(invoice.id)}">${invoice.invoiceNumber}</a></td>
+			<td>${invoice.dateCreated?.format()}</td>
+			<td><a href="@{Contacts.show(invoice.contact?.id)}">${invoice.contact}</a></td>
+			<td class="c"><a href="javascript:void(0);" onclick="deleteAccount('${invoice.id}')">X</a></td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+<script type="text/javascript">
+
+
+	function deleteAccount(id) {
+		$.confirm("Etes vous sur de vouloir supprimer ce compte ?",
+			function(){
+				$.get('/account/' + id + '/delete', function(data) {
+					$("#searchAccountsResult").html(data);
+				});
+				$.msg("Compte \"" + id + "\" supprimé !");
+		});
+	}
+		
+</script>

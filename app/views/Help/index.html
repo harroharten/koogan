@@ -1,0 +1,80 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="#">&{'contact.title'}</a></li>
+	</ul><!--maintabmenu-->
+	
+	
+	<div class="content">
+		<a class="btn btn_user radius50" href="@{Help.index()}"><span>&{'menu.help'}</span></a>
+		<p>&nbsp;</p>
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'menu.help'}</span>
+			</h2>
+		</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+	<div class="g12">
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Help.index()}">
+					<span class="i_admin_user">&{'menu.help'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					&{'menu.help'}
+				</a>
+			</li>
+		</ul>
+		<p>&nbsp;</p>
+#{/else}
+	
+	
+<div class="content">
+		<p>Koogan est actuellement en cours de développement. Pour de plus amples informations, n'hésitez pas à nous contacter via le formulaire.</p>
+ 		#{if flash.error}
+			<div class="notification msgalert">
+				<a class="close"></a>
+				<p>&{flash.error}</p>
+			</div>
+	    #{/if}
+		 #{if flash.success}
+			<div class="notification msgsuccess">
+				<a class="close"></a>
+				<p>&{flash.success}</p>
+			</div>
+	    #{/if}
+		#{form @Help.sendMessage(), method:'POST', enctype:'multipart/form-data', class:'well form-horizontal'}
+			<fieldset>
+				<section>
+					<label id="inputName" for="inputName" class="control-label">&{'help.form.name'}</label>
+					<div>
+				   		<input type="text" name="name" id="inputName" class="g3" value="${flash.name}"/>
+				   		#{ifError 'name'}<span class="error">#{error 'name' /}</span>#{/ifError}
+				    </div>
+					<label id="inputEmail" for="inputEmail" class="control-label">&{'help.form.email'}</label>
+					<div>
+				   		<input type="text" name="email" id="inputEmail" class="g3" value="${flash.email}"/>
+				   		#{ifError 'email'}<span class="error">#{error 'email' /}</span>#{/ifError}
+				    </div>
+					<label id="inputMessage" for="inputMessage" class="control-label">&{'help.form.message'}</label>
+					<div>
+				    	<textarea id="inputMessage" class="g5" name="message" >${flash.message}</textarea>
+				    	#{ifError 'message'}<span class="error">#{error 'message' /}</span>#{/ifError}
+				    </div>
+				</section>
+				
+				<section>
+					<div>
+						<button class="submit" name="submitbuttonname" value="submitbuttonvalue">&{'help.form.send'}</button>
+					</div>
+				</section>
+			</fieldset>
+		#{/form}
+		</div>	
+

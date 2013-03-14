@@ -1,0 +1,38 @@
+////////////////////////////////////////////////////////////////////////////////
+// Tests:
+// - login / logout
+// - registration of new user with subseauent login
+// - password forgotten function
+// => is tested on one domain (functionality of signing two domains is not tested)
+
+    //test registration
+    clearSession()
+    open('/Dashboard/index')
+    
+    assertTextPresent('&{'secure.title'}')
+    clickAndWait('link=&{'login.register.new.user'}')
+    
+    assertTextPresent('Inscription')
+    
+    
+    //now we are entering a correct email and check tos => everythings okay...
+    type('email', 'test@test.com')
+    type('password', 'the_correct_password')
+    type('confirm', 'the_correct_password')
+    check('acceptTermsOfService')
+    clickAndWait('//button[.="&{'login.register.new.user'}"]')
+    
+    //check that email was sent to test@test.com
+    storeLastReceivedEmailBy('test@test.com', 'email')
+    store('javascript{/http:[^\s]+/.exec(storedVars["email"])[0]}', 'confirmationUrl')
+    open($[confirmationUrl])
+    assertTextPresent('Inscription réussie')  
+       
+<!--     //and now log in with new password: -->
+<!--     clearSession() -->
+<!--     open('/Dashboard/index') -->
+<!--     type('username', 'test@test.com') -->
+<!--     type('password', 'the_correct_password') -->
+<!--     clickAndWait('//button[@class="submit"]') -->
+<!--     assertTextPresent('test@test.com') -->
+

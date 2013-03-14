@@ -1,0 +1,69 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="@{Accounts.index()}">&{'account.buttons.modify'}</a></li>
+	</ul><!--maintabmenu-->
+	
+	
+	<div class="content">
+		<a class="btn btn_list radius50" href="@{Accounts.index()}"><span>&{'account.buttons.list'}</span></a>
+		<p>&nbsp;</p>
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'account.buttons.modify'}</span>
+			</h2>
+		</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+	
+	<div class="g12">
+	
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Accounts.index()}">
+					<span class="i_buildings">&{'account.buttons.list'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					&{'account.buttons.modify'}
+				</a>
+			</li>
+		</ul>
+		<a class="btn small fr i_magnifying_glass icon" href="@{Accounts.index()}">&{'account.buttons.list'}</a>
+		<p>&nbsp;</p>
+
+#{/else}
+
+
+	#{form @Accounts.update(), method:'POST', enctype:'multipart/form-data', class:'well form-horizontal'}
+		<input type="hidden" name="account.id" value="${account.id}" />
+		<fieldset>
+			<label>&{'account.buttons.modify'}</label>
+	<section>
+		<label id="inputLastNameLabel" for="inputLastName" class="control-label">&{'account.add.name'}</label>
+	    <input type="text" name="account.name" id="inputName" class="g3" value="${account.name}" />
+	</section>
+	
+	<section>
+		<label id="globalInputStatus" for="inputStatus" class="control-label">&{'account.add.status'}</label>
+		#{select "account.status", items:models.enums.Status.values(), id:'globalInputStatus', value:account.status /}
+	</section>
+	
+	<section>
+		<label id="globalInputStatus" for="inputStatus" class="control-label">&{'account.add.salesProcess'}</label>
+		#{select "account.salesProcess", items:models.enums.SalesProcess.values(), id:'globalInputStatus', value:account.salesProcess /}
+	</section>
+	
+	<section>
+		<div>
+			<button class="submit" name="submitbuttonname" value="submitbuttonvalue">&{'account.buttons.modify'}</button>
+			&{'account.add.or'} <a href="@{Accounts.index()}">&{'account.add.return'}</a>
+		</div>
+	</section>
+		</fieldset>
+	#{/form}
+</div>

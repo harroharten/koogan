@@ -1,0 +1,89 @@
+.jcarousel-skin .jcarousel-container {
+	margin:0;
+	padding:0;
+}
+
+.jcarousel-skin .jcarousel-direction-rtl {
+	direction: rtl;
+}
+
+.jcarousel-skin .jcarousel-container-horizontal {
+    width: 608px;
+	margin:0;
+	padding:0;
+}
+
+.jcarousel-skin .jcarousel-clip {
+    overflow: hidden;
+}
+
+.jcarousel-skin .jcarousel-clip-horizontal {
+    width: 100%;
+}
+.jcarousel-skin .jcarousel-item {
+    width: 137px;
+}
+
+.jcarousel-skin .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000;
+}
+
+/**
+ *  Horizontal Buttons
+ */
+.jcarousel-skin .jcarousel-next-horizontal {
+    background: transparent url(../images/icons/next-horizontal.png) no-repeat 0 0;
+    position: absolute;
+    top: -34px;
+    right: 5px;
+    width: 10px;
+    height: 13px;
+    cursor: pointer;
+}
+
+
+.jcarousel-skin .jcarousel-next-horizontal:hover,
+.jcarousel-skin .jcarousel-next-horizontal:focus {
+    background-position: -10px 0;
+}
+
+.jcarousel-skin .jcarousel-next-horizontal:active {
+    background-position: -20px 0;
+}
+
+.jcarousel-skin .jcarousel-next-disabled-horizontal,
+.jcarousel-skin .jcarousel-next-disabled-horizontal:hover,
+.jcarousel-skin .jcarousel-next-disabled-horizontal:focus,
+.jcarousel-skin .jcarousel-next-disabled-horizontal:active {
+    cursor: default;
+    background-position: -96px 0;
+}
+
+.jcarousel-skin .jcarousel-prev-horizontal {
+	background: transparent url(../images/icons/prev-horizontal.png) no-repeat 0 0;
+    position: absolute;
+    top: -34px;
+    right: 25px;
+    width: 10px;
+    height: 13px;
+    cursor: pointer;
+}
+
+.jcarousel-skin .jcarousel-prev-horizontal:hover, 
+.jcarousel-skin .jcarousel-prev-horizontal:focus {
+    background-position: -10px 0;
+}
+
+.jcarousel-skin .jcarousel-prev-horizontal:active {
+    background-position: -20px 0;
+}
+
+.jcarousel-skin .jcarousel-prev-disabled-horizontal,
+.jcarousel-skin .jcarousel-prev-disabled-horizontal:hover,
+.jcarousel-skin .jcarousel-prev-disabled-horizontal:focus,
+.jcarousel-skin .jcarousel-prev-disabled-horizontal:active {
+    cursor: default;
+    background-position: -96px 0;
+}
+

@@ -1,0 +1,5 @@
+&{'help.message.intro'}
+${name} &{'help.message.sent_this_message'}
+
+${message}
+

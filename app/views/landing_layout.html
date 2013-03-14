@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>#{get 'title' /}</title>
+
+    <link rel="stylesheet" type="text/css" href="@{'/public/landing/css/prettyPhoto.css'}" media="all" />
+	<link rel="stylesheet" type="text/css" href="@{'/public/landing/css/carousel.css'}">
+	<link rel="stylesheet" type="text/css" href="@{'/public/landing/css/styles.css'}" />
+    
+	<!-- jQuery Script -->
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+	*{
+	<script src="@{'/public/landing/js/jquery.easing.1.3.js"></script>
+	
+	<!-- prettyPhoto -->
+    <script type="text/javascript" src="js/prettyPhoto/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="js/prettyPhoto/setting.js"></script>
+	
+	<!-- carousel -->
+	<script src="js/carousel/jquery.jcarousel.min.js"></script>
+	<script src="js/carousel/setting.js"></script>
+	
+	}*
+	<!-- cycle -->
+	<script type="text/javascript" src="@{'/public/landing/js/jquery.cycle.all.min.js'}"></script>
+	
+	<script type="text/javascript" src="@{'/public/landing/js/function.js'}"></script>
+
+</head>
+
+<body>
+
+<!-- start of inner -->
+<div id="inner">
+
+	<div class="inner_top"></div>
+			
+		<!-- start of inner_mid -->
+		<div class="inner_mid">
+			
+			<!-- start of header -->
+			<div class="wrap">
+				<div id="header">
+					<div class="logo">
+						<img src="@{'/public/landing/images/logo.png'}" alt="" />
+						<p>&{'landing.head.slogan'}</p>
+					</div>
+					
+					<div class="phone_number">
+					<h4>&{'landing.head.contact'}</h4>
+					</div>
+					
+				</div>
+			<!-- end of header -->
+			</div>
+            
+			<div class="clear"></div>
+        	
+ 			<div id="featured-area">
+				<div class="light">			
+					<!-- start of wrap -->
+					<div class="wrap featured-content">
+					
+					<div class="fullwidth title">
+						<h1>&{'landing.slider.titleh1'}</h1>
+					</div>
+					<div class="clear"></div>
+
+					
+						<div class="one-half first">
+							<div class="featured-form">
+								<div class="form-wrapper">
+									<h3 class="form-title">&{'landing.slider.freetryout'}</h3>		
+									<form action="#">
+										<ul class="form-list">
+											<li class="first">
+												<input type="text" class="inputbg" name="name" onfocus="if (this.value == '&{'landing.slider.your_name'}') {this.value = '';}" onblur="if (this.value == '') {this.value = '&{'landing.slider.your_name'}';}" value="&{'landing.slider.your_name'}" />
+											</li>
+											<li>
+												<input type="text" class="inputbg" name="email" onfocus="if (this.value == '&{'landing.slider.your_email'}') {this.value = '';}" onblur="if (this.value == '') {this.value = '&{'landing.slider.your_email'}';}" value="&{'landing.slider.your_email'}" />
+											</li>
+											<li class="last">
+												<div class="but-color-big buttons signup">
+													<a href="/registration"><span class="but-icon"></span><span class="but-desc"><strong>&{'landing.slider.button.register'}</strong><br /><em>&{'landing.slider.button.register2'}</em></span></a>
+												</div>
+												<div class="but-color-big buttons secondary">
+													<a href="/login"><span class="but-icon"></span><span class="but-desc"><strong>&{'landing.slider.button.login'}</strong><br /><em>&{'landing.slider.button.login2'}</em></span></a>
+												</div>
+											</li>
+										</ul>
+									</form>	
+								</div>								
+							</div>
+						</div>
+						
+						
+						<div class="one-half last">
+							<h3>&{'landing.slider.titleh3'}</h3>
+							<p>
+							&{'landing.slider.description'}
+							</p>
+							<ul class="checklist"> 
+								<li>&{'landing.slider.advantage1'}</li>
+								<li>&{'landing.slider.advantage2'}</li>
+								<li>&{'landing.slider.advantage3'}</li>
+								<li>&{'landing.slider.advantage4'}</li>
+								<li>&{'landing.slider.advantage5'}</li>
+							</ul>								
+						</div>
+
+					
+					</div>
+				</div>
+            </div>
+		    <!-- end of featured-area -->
+			
+			<div class="clear"></div>
+			
+			
+            <!-- start of -->
+            <div class="wrap columns spacer30">
+
+
+                <!-- start of one-fourth first -->
+                <div class="one-fourth first">
+					<img src="@{'/public/landing/images/icons/icon_1.png'}" alt="" class="left"/><h5>&{'landing.feature.1.title'}</h5>					
+					<p>
+					&{'landing.feature.1.description'}
+					</p>
+				</div>
+                <!-- end of one-fourth -->
+
+                <!-- start of one-fourth -->
+                <div class="one-fourth">
+					<img src="@{'/public/landing/images/icons/icon_2.png'}" alt="" class="left"/><h5>&{'landing.feature.2.title'}</h5>					
+					<p>
+					&{'landing.feature.2.description'}
+					</p>
+				</div>
+                <!-- end of one-fourth -->
+                
+                <!-- start of one-fourth -->
+                <div class="one-fourth">
+					<img src="@{'/public/landing/images/icons/icon_3.png'}" alt="" class="left"/><h5>&{'landing.feature.3.title'}</h5>					
+					<p>
+					&{'landing.feature.3.description'}
+					</p>
+				</div>
+                <!-- end of one-fourth -->
+
+                <!-- start of one-fourth -->
+                <div class="one-fourth">
+					<img src="@{'/public/landing/images/icons/icon_4.png'}" alt="" class="left"/><h5>&{'landing.feature.4.title'}</h5>					
+					<p>
+					&{'landing.feature.4.description'}
+					</p>
+				</div>
+                <!-- end of one-fourth -->
+
+
+			</div>
+			<!-- end of wrap -->
+            <div class="clear"></div>
+
+			<div class="divider spacer25"></div>
+			
+            <!-- start of -->
+            <div class="wrap columns">
+
+
+                <!-- start of one-fourth first -->
+                <div class="one-third first">
+					<h5>Eos commodo legimus</h5>
+					<img src="@{'/public/landing/images/icons/icon_10.png'}" alt="" class="left"/>						
+					<p>
+					Quaestio perpetua te sit, cu sea alia ceteros, natum ubique elaboraret ne usu. Ad ius adipisci reformidanscop. Pro no discere voluptatibus, fugit zril labore ei intellegebat an sit. Solet dolore tacimates in eam. Sea ea facete percipitur, at vim summo oratio probatus
+					</p>
+
+					<!-- Start toggle -->	
+					<div class="toggle tstyle1">                                            
+						<h6 class="title"><span class="title_content">Lorem ipsum dolor sit amet</span></h6>
+						<div class="pane">
+							<div class="pane-page">
+								<p>
+								libero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sagittis, dolor nec tempor condimentumlibero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id.
+								</p>
+							</div> 
+						</div>                                    
+					</div>
+					<!-- end toggle -->	
+					
+					<!-- Start toggle -->
+					<div class="toggle tstyle1">                                            
+						<h6 class="title"><span class="title_content">An nec diam everti ut aperiri</span></h6>
+						<div class="pane">
+							<div class="pane-page">
+								<p>
+								libero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sagittis, dolor nec tempor condimentumlibero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id.
+								</p>
+							</div> 
+						</div>                                    
+					</div>
+					<!-- end toggle -->	
+					
+					<!-- Start toggle -->
+					<div class="toggle tstyle1">                                            
+						<h6 class="title"><span class="title_content">Etiam nostrud quaestio</span></h6>
+						<div class="pane">
+							<div class="pane-page">
+								<p>
+								libero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sagittis, dolor nec tempor condimentumlibero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id.
+								</p>
+							</div> 
+						</div>                                    
+					</div>
+					<!-- end toggle -->		
+					
+					<!-- Start toggle -->
+					<div class="toggle tstyle1">                                            
+						<h6 class="title"><span class="title_content">No eirmod virtute delectus</span></h6>
+						<div class="pane">
+							<div class="pane-page">
+								<p>
+								libero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sagittis, dolor nec tempor condimentumlibero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id.
+								</p>
+							</div> 
+						</div>                                    
+					</div>		
+					<!-- end toggle -->	
+
+					<!-- Start toggle -->
+					<div class="toggle tstyle1">                                            
+						<h6 class="title"><span class="title_content">Pellentesque massa cursus</span></h6>
+						<div class="pane">
+							<div class="pane-page">
+								<p>
+								libero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sagittis, dolor nec tempor condimentumlibero quam euismod quam, sed sodales purus nisl eget felis. Pellentesque elit massa, cursus id.
+								</p>
+							</div> 
+						</div>                                    
+					</div>		
+					<!-- end toggle -->	
+					
+				</div>
+                <!-- end of one-fourth -->
+
+                <!-- start of two-third -->
+                <div class="two-third  last">
+					<h5>Our screenshots</h5>
+                     <!-- start of gallery -->
+                     <div class="gallery">
+						 <ul id="gallery" class="jcarousel-skin">
+							 <li class="first"><a href="images/gallery/big_1.jpg" class="zoom" data-pretty="prettyPhoto[gallery1]" title="Your image name"><img src="@{'/public/landing/images/gallery/1.jpg'}" alt="" /></a></li>
+							 <li><a href="images/gallery/big_1.jpg" class="zoom" data-pretty="prettyPhoto[gallery1]" title="Your image name"><img src="@{'/public/landing/images/gallery/2.jpg'}" alt="" /></a></li>
+							 <li><a href="images/gallery/big_1.jpg" class="zoom" data-pretty="prettyPhoto[gallery1]" title="Your image name"><img src="@{'/public/landing/images/gallery/3.jpg'}" alt="" /></a></li>
+							 <li><a href="images/gallery/big_1.jpg" class="zoom" data-pretty="prettyPhoto[gallery1]" title="Your image name"><img src="@{'/public/landing/images/gallery/4.jpg'}" alt="" /></a></li>
+						 </ul>
+                     </div>
+                     <!-- end of gallery -->
+					 
+					<!-- start of one-fourth first -->
+					<div class="one-third first">
+						<h5>Eos commodo legimus</h5>
+						<img src="@{'/public/landing/images/icons/icon_9.png'}" alt="" class="left"/>						
+						<p>
+						Ullamcorper ad. Autem adolescens mel id, an quas conceptam quo, qui et erant reprimique. Vel cetero graecis no. Augue partiendo quo eos commodo legimus persequeris et cibo at, te legere nominavi nam, imperdiet scribentur.
+						</p>
+					</div>
+					<!-- end of one-fourth -->
+					
+					<!-- start of one-fourth first -->
+					<div class="one-third last">
+						<h5>Eos commodo legimus</h5>					
+						<ul class="checklist"> 
+							<li>Lorem ipsum dolor sit amet ex al</li>
+							<li>Pro eros sonet adipiscing has et</li>
+							<li>Omnesque honestatis philosopia</li>
+							<li>Autem adolescens mel</li>
+						</ul>
+					</div>
+					<!-- end of one-fourth -->		
+					
+				</div>
+                <!-- end of two-third -->
+
+			</div>
+			<!-- end of wrap -->			
+			
+            <div class="clear"></div>
+
+			<div class="divider spacer20"></div>
+			
+			<div class="wrap columns">	
+				<div class="one-half first">
+				<!-- start of testimonials -->
+				<div class="testimonials">
+
+					<ul class="testimonial">
+						<li>
+							<blockquote>
+							Quidam meliore ea qui. Graeci mollis ne eos, est novum error libris in. An mediocrem scribentur iriure malorum vocibus duo, legere assentior et qui. Vim oporteat efficiendi definitionem ea.
+							</blockquote>
+							<img src="@{'/public/landing/images/author.png'}" alt="" class="left" />
+							<p class="author-name">Mike doe</p>
+							<p class="author-company">Mike publishing</p>
+						</li>
+						<li>
+							<blockquote>
+							Ut diam consectetuer pro, at vis vide dolore consequuntur, sed in maiestatis appellantur. Iriure laoreet ex qui, vis sale solet pertinax te. Unum delenit in quo, ad nec putent iriure consectetuer.
+							</blockquote>
+							<img src="@{'/public/landing/images/author.png'}" alt="" class="left" />
+							<p class="author-name">Ian shoe</p>
+							<p class="author-company">Marketing company</p>
+						</li>	
+						<li>
+							<blockquote>
+							Postea numquam civibus ne quo, no nec errem latine propriae. Nam reque perfecto vituperata in, et suas harum nec, movet omnium eu duo. At eum nisl novum constituam, ius utroque indoctum ex. 
+							</blockquote>
+							<img src="@{'/public/landing/images/author.png'}" alt="" class="left" />
+							<p class="author-name">Brian doe</p>
+							<p class="author-company">IM management</p>
+						</li>					
+					</ul>	
+				
+				</div>	
+				<!-- end of testimonials -->
+				</div>
+				<div class="one-half last features">
+				<h5>More features for customers</h5>	
+
+				<div class="one-fourth first">
+					<img src="@{'/public/landing/images/icons/icon_5.png'}" alt="" class="left"/><p><strong>Clear brand</strong></p>						
+					<p>Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing has.
+					</p>
+				</div>	
+				
+				<div class="one-fourth last">
+					<img src="@{'/public/landing/images/icons/icon_6.png'}" alt="" class="left"/><p><strong>Prove credibility</strong></p>					
+					<p>Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing has.
+					</p>
+				</div>
+				<div class="clear"></div>
+				<div class="spacer5"></div>
+				
+				<div class="one-fourth first">
+					<img src="@{'/public/landing/images/icons/icon_7.png'}" alt="" class="left"/><p><strong>Deliver relevance</strong></p>						
+					<p>Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing has.
+					</p>
+				</div>	
+				
+				<div class="one-fourth last">
+					<img src="@{'/public/landing/images/icons/icon_8.png'}" alt="" class="left"/><p><strong>Landing page longevity</strong></p>				
+					<p>Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing has.
+					</p>
+				</div>
+
+				</div>	
+						  
+			</div>				
+			
+		
+			<div class="clear"></div>		
+
+			
+            <!-- start of wrap footer -->
+            <div class="footer-widgets">
+            
+				<div class="wrap columns">
+             
+		        <!-- start one-third first -->
+			    <div class="one-third first">
+					<h5>About company</h5>
+					<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. 
+					Typi non habent claritatem insitam. Augue partiendo quo eos commodo legimus persequeris et cibo at, te legere nominavi nam, imperdiet scribentur. 
+					</p>
+                </div>
+                <!-- end of one-third first -->
+            
+		        <!-- start of one-third -->
+			    <div class="one-third">
+					<h5>Payment methods</h5>
+			<p>We are really flexible with the payment methods, there's no USA bank account required. You can pay your Vizual TV monthly subscription using Paypal, credit card or Master card.</p>
+	  
+			<ul class="payments">
+				<li><img src="@{'/public/landing/images/icons/paypal.png'}" alt="" /></li>
+				<li><img src="@{'/public/landing/images/icons/mastercard.png'}" alt="" /></li>
+				<li><img src="@{'/public/landing/images/icons/visa.png'}" alt="" /></li>
+				<li><img src="@{'/public/landing/images/icons/amex.png'}" alt="" /></li>	
+			</ul>	  
+                </div>
+                <!-- end of one-third -->
+
+                <!-- start of one-third last -->
+                <div class="one-third last">
+					<h5>Get in touch with us</h5>
+					<p><strong>Tactics office:</strong> some bad street 1234 XY, 83 sweetest building no.155, some country 1423 <br />
+					<strong>Tel line 1.</strong> +1 999 888 989 <br />
+					<strong>Tel line 2.</strong> +1 999 888 988<br />
+					<strong>Fax.</strong> +1 999 888 989 <br />
+					<strong>Email :</strong> yourname@email.com
+					</p>
+					<p><strong>Follow us on:</strong></p>
+							<ul class="fsocial_network">
+								<li class="image_one" ><a href="#"><span class="fb-rollover"></span><img src="@{'/public/landing/images/icons/social/facebook_dark.png'}" alt="" /></a></li>
+								<li class="image_one"><a href="#"><span class="twitter-rollover"></span><img src="@{'/public/landing/images/icons/social/twitter_dark.png'}" alt="" /></a></li>
+								<li class="image_one"><a href="#"><span class="linkedin-rollover"></span><img src="@{'/public/landing/images/icons/social/linkedin_dark.png'}" alt="" /></a></li>
+								<li class="image_one"><a href="#"><span class="rss-rollover"></span><img src="@{'/public/landing/images/icons/social/rss_dark.png'}" alt="" /></a></li>
+								<li class="image_one"><a href="#"><span class="gplus-rollover"></span><img src="@{'/public/landing/images/icons/social/gplus_dark.png'}" alt="" /></a></li>
+								<li class="image_one"><a href="#"><span class="mail-rollover"></span><img src="@{'/public/landing/images/icons/social/mail_dark.png'}" alt="" /></a></li>					
+							</ul>	 
+                </div>
+			
+				</div>
+		
+            </div>
+            <!-- end of wrap -->
+
+            <div class="clear"></div>
+			
+            <!-- start of wrap -->
+            <div class="wrap columns">
+
+
+                <!-- start of copyright -->
+                <div class="endfooter">
+				<ul class="links">
+					<li><a href="#">About us</a></li>
+					<li><a href="#">Terms & privacy</a></li>
+					<li><a href="#">Affiliate</a></li>
+				</ul>	
+                </div>
+                <!-- end of copyright -->
+
+                <!-- start of social -->
+				<div class="right">
+                    <p class="copyright"><strong>Env:</strong> ${play.Play.configuration.get("application.mode")}
+            		/ <strong>ID:</strong> ${play.Play.id}
+					/ <strong>DB:</strong> ${play.Play.configuration.get("db.user")}
+					/ <strong>Appli:</strong> ${play.Play.configuration.get("bees.api.name")}
+					/ &{'layout.footer.content'}</p>
+				</div>
+			    <!-- end of social -->
+
+		     <!-- end of fullwidth -->
+
+            </div>
+            <!-- end of wrap -->
+
+            </div>
+            <!-- end of inner_mid -->
+
+			<div class="inner_bottom"></div>
+			
+			
+		<p id="back-top">
+		<a href="#top"><span></span>Back to Top</a>
+	</p>
+
+	</div>
+	<!-- end of inner -->
+
+	#{googleAnalytics /}
+</body>
+
+</html>

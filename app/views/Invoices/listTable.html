@@ -1,0 +1,43 @@
+	
+			
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+<table class="stdtable" cellspacing="0" cellpadding="0" border="0">
+#{/if}
+#{else}
+<table class="datatable">
+#{/else}
+	<thead>
+		<tr>
+			<th class="head0">&{'invoice.list.invoiceNumber'}</th>
+			<th class="head1">&{'invoice.list.dateCreated'}</th>
+			<th class="head0">&{'invoice.list.amount'}</th>
+			<th class="head1">&{'invoice.list.contact'}</th>
+			<th class="head0">&{'invoice.list.actions'}</th>
+		</tr>
+	</thead>
+	<tbody>
+		#{list invoices, as:'invoice'}
+		<tr class="gradeX">
+			<td><a href="@{Invoices.show(invoice.id)}">${invoice.invoiceNumber}</a></td>
+			<td>${invoice.dateCreated?.format()}</td>
+			<td>${invoice.totalAmount}</td>
+			<td><a href="@{Contacts.show(invoice.contact?.id)}">${invoice.contact}</a></td>
+			<td class="c"><a href="javascript:void(0);" onclick="deleteAccount('${invoice.id}')">X</a></td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+<script type="text/javascript">
+
+
+	function deleteAccount(id) {
+		$.confirm("Etes vous sur de vouloir supprimer ce compte ?",
+			function(){
+				$.get('/account/' + id + '/delete', function(data) {
+					$("#searchAccountsResult").html(data);
+				});
+				$.msg("Compte \"" + id + "\" supprimé !");
+		});
+	}
+		
+</script>

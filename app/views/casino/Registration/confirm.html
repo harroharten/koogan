@@ -1,0 +1,16 @@
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'casino/Secure/layout_birdie.html' /}
+#{/if}
+#{else}
+	#{extends 'casino/Secure/layout_beige.html' /}
+#{/else}
+
+    #{if flash.error}
+        <p class="error">
+            &{flash.error}
+        </p>
+    #{/if}
+    #{if flash.success}
+        <p class="success"> &{flash.success}
+        </p>
+    #{/if}

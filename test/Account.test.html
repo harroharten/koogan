@@ -1,0 +1,32 @@
+////////////////////////////////////////////////////////////////////////////////
+// Tests:
+// - registration of new user with subseauent login
+// - login
+// - add an account and check if present
+
+#{fixture delete:'all'/}
+#{selenium 'Test Accounts'}
+
+    #{include 'test/included/QuickRegistration.html'/}
+    
+    open('/Dashboard/index')
+    
+    clickAndWait('link=Compte')
+    assertTextPresent('Liste des comptes')
+    assertTextPresent('No data available in table')
+    
+    clickAndWait('link=Ajouter un compte')
+    assertTextPresent('Ajouter un compte')
+    
+    type('account.name', 'Test Account')
+    select('account.status', 'SASU')
+    select('account.salesProcess', 'ARCHIVED')
+    clickAndWait('//button[@class="submit"]')
+    
+    assertTextPresent('Test Account')
+    assertTextPresent('SASU')
+    assertTextPresent('ARCHIVED')
+    assertTextPresent('Détails de ce compte')
+    
+#{/selenium}
+#{fixture delete:'all'/}

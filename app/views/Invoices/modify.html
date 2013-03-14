@@ -1,0 +1,41 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="#">&{'contact.buttons.modify'}</a></li>
+	</ul><!--maintabmenu-->
+	
+	<div class="content">
+		<a class="btn btn_list radius50" href="@{Contacts.index()}"><span>&{'contact.buttons.list'}</span></a>
+		<p>&nbsp;</p>
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'contact.buttons.modify'}</span>
+			</h2>
+		</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+
+	<div class="g12">
+	
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Invoices.index()}">
+					<span class="i_admin_user">&{'contact.buttons.list'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					&{'invoices.buttons.modify'}
+				</a>
+			</li>
+		</ul>
+		<a class="btn small fr i_magnifying_glass icon" href="@{Invoices.index()}">&{'invoice.buttons.list'}</a>
+		<p>&nbsp;</p>
+#{/else}
+
+
+	not implemented yet
+</div>

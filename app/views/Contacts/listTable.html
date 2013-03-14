@@ -1,0 +1,43 @@
+	
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	<table class="stdtable" cellspacing="0" cellpadding="0" border="0">
+#{/if}
+#{else}
+	<table class="datatable">
+#{/else}
+	<thead>
+		<tr>
+			<th class="head0">&{'contact.list.name'}</th>
+			<th class="head1">&{'contact.list.phone_number'}</th>
+			<th class="head0">&{'contact.list.email'}</th>
+			<th class="head1">&{'contact.list.account'}</th>
+			<th class="head0">&{'contact.list.actions'}</th>
+		</tr>
+	</thead>
+	<tbody>
+		#{list contacts, as:'contact'}
+		<tr class="gradeX">
+			<td><a href="@{Contacts.show(contact.id)}">${contact.civilTitle} ${contact.firstName} ${contact.lastName}</a></td>
+			<td>${contact.phoneNumber}</td>
+			<td class="c">${contact.email}</td>
+			<td class="c">
+				<a href="@{Accounts.show(contact.account?.id)}">${contact.account?.name}</a>
+			</td>
+			<td class="c"><a href="javascript:void(0);" onclick="deleteContact('${contact.id}')">X</a></td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+<script type="text/javascript">
+	
+	function deleteContact(id) {
+		$.confirm("Etes vous sur de vouloir supprimer ce contact ?",
+			function(){
+				$.get('/contact/' + id + '/delete', function(data) {
+					$("#searchContactsResult").html(data);
+				});
+				$.msg("contact \"" + id + "\" supprimé !");
+		});
+	}
+		
+</script>

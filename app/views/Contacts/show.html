@@ -1,0 +1,160 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="#">${contact.firstName} ${contact.lastName}</a></li>
+	</ul><!--maintabmenu-->
+	
+	<div class="content">
+		<a class="btn btn_list radius50" href="@{Contacts.index()}"><span>&{'contact.buttons.list'}</span></a>
+		<a class="btn btn_user radius50" href="@{Contacts.add()}"><span>&{'contact.buttons.add'}</span></a>
+		<a class="btn btn_pencil radius50" href="@{Contacts.modify(contact.id)}"><span>&{'contact.buttons.modify'}</span></a>
+		<a class="btn btn_trash radius50" href="javascript:void(0)" onclick="deleteContact('${contact.id}')"><span>&{'contact.buttons.delete'}</span></a>
+		<a class="btn btn_book radius50"><span>&{'invoice.buttons.add'}</span></a>
+		<a class="btn btn_bulb radius50"><span>&{'quote.buttons.add'}</span></a>
+		<p>&nbsp;</p>
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'contact.show.details'}</span>
+			</h2>
+		</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+<div class="g12">
+
+
+	<ul class="breadcrumb">
+		<li>
+			<a href="@{Contacts.index()}">
+				<span class="i_admin_user">&{'contact.buttons.list_contacts'}</span>
+			</a>
+		</li>
+		<li>
+			<a class="active" href="#">
+				${contact.firstName} ${contact.lastName}
+			</a>
+		</li>
+	</ul>
+	<a class="btn small fr i_create_write icon">&{'quote.buttons.add'}</a>
+	<a class="btn small fr i_book icon">&{'invoice.buttons.add'}</a>
+	<a class="btn small fr i_trashcan icon" href="javascript:void(0)" onclick="deleteContact('${contact.id}')">&{'contact.buttons.delete'}</a>
+	<a class="btn small fr i_pencil icon" href="@{Contacts.modify(contact.id)}">&{'contact.buttons.modify'}</a>
+	<a class="btn small fr i_plus icon" href="@{Contacts.add()}">&{'contact.buttons.add'}</a>
+	<a class="btn small fr i_magnifying_glass icon" href="@{Contacts.index()}">&{'contact.buttons.list'}</a>
+	<p>&nbsp;</p>
+#{/else}
+
+	
+	<div class="tab ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active">
+				<a href="#tabs-1">&{'contact.show.details'}</a>
+			</li>
+			<li class="ui-state-default ui-corner-top">
+				<a href="#tabs-2">&{'contact.show.quotes'}</a>
+			</li>
+			<li class="ui-state-default ui-corner-top">
+				<a href="#tabs-3">&{'contact.show.invoices'}</a>
+			</li>
+			<li class="ui-state-default ui-corner-top">
+				<a href="#tabs-4">&{'contact.show.history'}</a>
+			</li>
+		</ul>
+		<div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="tabs-1">
+			<p>
+				${contact.civilTitle} ${contact.firstName} ${contact.lastName}<br />
+				&{'account_name'} : <a href="@{Accounts.show(contact.account?.id)}">${contact.account?.name}</a><br />
+				Adresse : ${contact.address}<br />
+				${contact.postalCode} ${contact.city}<br />
+				${contact.country}<br />
+				&{'email'} : ${contact.email}<br />
+				&{'phoneNumber'} : ${contact.phoneNumber}<br />
+				&{'cellphoneNumber'} : ${contact.cellphoneNumber}<br />
+				&{'faxNumber'} : ${contact.faxNumber}<br />
+				&{'comments'} : ${contact.comments}<br />
+			</p>
+		</div>
+		<div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-2">
+			<p><h4>&{'contact.show.quotes'}</h4></p>
+			
+			
+		</div>
+		<div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-3">
+			<p><h4>&{'contact.show.invoices'}</h4></p>
+			<div>
+				<table>
+					<thead>
+						<tr>
+							<th>
+								&{'invoice.list.invoiceNumber'}
+							</th>
+							<th>
+								&{'invoice.list.dateCreated'}
+							</th>
+							<th>
+								&{'invoice.list.invoiceDetails'}
+							</th>
+							<th>
+								&{'invoice.list.totalAmount'}
+							</th>
+							<th>
+								&{'invoice.list.comments'}
+							</th>
+							<th>
+								&{'invoice.list.actions'}
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						#{list items:contact.invoices, as:'invoice'}
+							<tr>
+								<td>
+									<a href="@{Invoices.show(invoice.id)}">${invoice.invoiceNumber}</a>
+								</td>
+								<td>
+									${invoice.dateCreated?.format()}
+								</td>
+								<td>
+									<ul>
+										#{list items:invoice.invoiceDetails, as:'line'}
+											<li>${line.description} - ${line.unitPrice} ${line.quantity}</li>
+										#{/list}
+									</ul>
+								</td>
+								<td>
+									${invoice.totalAmount}
+								</td>
+								<td>
+									${invoice.comments}
+								</td>
+								<td>
+									x
+								</td>
+							</tr>
+						#{/list}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-4">
+			<p><h4>&{'contact.show.history'}</h4></p>
+		</div>
+	</div> 
+</div>
+
+<script type="text/javascript">
+
+	
+	function deleteContact(id) {
+		$.confirm("Etes vous sur de vouloir supprimer ce contact ?",
+			function(){
+				$.get('/contact/' + id + '/delete', function(data) {
+					$("#searchContactsResult").html(data);
+				});
+				$.msg("contact \"" + id + "\" supprimé !");
+		});
+	}
+		
+</script>

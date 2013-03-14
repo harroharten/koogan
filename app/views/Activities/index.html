@@ -1,0 +1,68 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="#">&{'activity.title'}</a></li>
+	</ul><!--maintabmenu-->
+	
+	
+	<div class="content">
+		<a class="btn btn_user radius50" href="@{Activities.add()}"><span>&{'activity.buttons.add'}</span></a>
+		<p>&nbsp;</p>
+		 #{if flash.error}
+			<div class="notification msgalert">
+				<a class="close"></a>
+				<p>&{flash.error}</p>
+			</div>
+	    #{/if}
+		 #{if flash.success}
+			<div class="notification msgsuccess">
+				<a class="close"></a>
+				<p>&{flash.success}</p>
+			</div>
+	    #{/if}
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'activity.buttons.list'}</span>
+			</h2>
+		</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+	
+	<div class="g12">
+
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Activities.index()}">
+					<span class="i_clock">&{'activity.title'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					&{'activity.buttons.list'}
+				</a>
+			</li>
+		</ul>
+		<a class="btn small fr i_plus icon" href="@{Activities.add()}">&{'activity.buttons.add'}</a>
+		<p>&nbsp;</p>	
+		 #{if flash.error}
+			<div class="notification msgalert">
+				<a class="close"></a>
+				<p>&{flash.error}</p>
+			</div>
+	    #{/if}
+		 #{if flash.success}
+			<div class="notification msgsuccess">
+				<a class="close"></a>
+				<p>&{flash.success}</p>
+			</div>
+	    #{/if}
+#{/else}
+
+
+		<div id="searchResult">
+			#{include 'Activities/listTable.html' /}
+		</div>
+	</div>

@@ -1,0 +1,94 @@
+#{extends 'main.html' /}
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+<div class="g12">
+
+	<ul class="breadcrumb">
+		<li>
+			<a href="@{Activities.index()}">
+				<span class="i_clock">&{'activity.buttons.list'}</span>
+			</a>
+		</li>
+		<li>
+			<a class="active" href="#">
+				&{'invoice.buttons.add'}
+			</a>
+		</li>
+	</ul>
+	<a class="btn small fr i_magnifying_glass icon" href="@{Invoices.index()}">&{'invoice.buttons.list'}</a>
+	<p>&nbsp;</p>
+
+	#{form @Invoices.insert(), method:'POST', enctype:'multipart/form-data', class:'well form-horizontal'}
+
+		<fieldset>
+			<label>&{'invoice.buttons.add'}</label>
+			<section>
+				<label id="inputLastNameLabel" for="inputLastName" class="control-label">&{'invoice.add.invoiceNumber'}</label>
+				<div>
+			    	<input type="text" name="invoice.invoiceNumber" id="inputNumber" class="g1" />
+				</div>
+			</section>
+			
+			<section>
+				<label id="inputDateLabel" for="inputDate" class="control-label">&{'invoice.add.date'}</label>
+			    <div>
+			    	<input type="text" name="invoice.dateCreated" id="inputDate" size="10" />
+			    </div>
+			</section>
+			
+			<section>
+				<label id="globalInputStatus" for="inputStatus" class="control-label">&{'invoice.add.contact'}</label>
+				<div>
+					#{select "invoice.contact.id", items:models.Contact.findByCurrentUser(), id:'globalInputStatus' /}
+				</div>
+			</section>
+			
+			
+			<section>
+				<label id="globalInputStatus" for="inputStatus" class="control-label">&{'invoice.add.invoice_line'}</label>
+				<div>
+					<input type="text" name="lines[0].description" id="inputLine0Description" class="g3" />
+					<input type="text" name="lines[0].quantity" id="inputLine0Quantity" size="10" />
+					<input type="text" name="lines[0].unitPrice" id="inputLine0UnitPrice" size="10" />
+				</div>
+			</section>
+			<section>
+				<label id="globalInputStatus" for="inputStatus" class="control-label">&{'invoice.add.invoice_line'}</label>
+				<div>
+					<input type="text" name="lines[1].description" id="inputLine1Description" class="g3" />
+					<input type="text" name="lines[1].quantity" id="inputLine1Quantity" size="10" />
+					<input type="text" name="lines[1].unitPrice" id="inputLine1UnitPrice" size="10" />
+				</div>
+			</section>
+			<section>
+				<label id="globalInputStatus" for="inputStatus" class="control-label">&{'invoice.add.invoice_line'}</label>
+				<div>
+					<input type="text" name="lines[2].description" id="inputLine2Description" class="g3" />
+					<input type="text" name="lines[2].quantity" id="inputLine2Quantity" size="10" />
+					<input type="text" name="lines[2].unitPrice" id="inputLine2UnitPrice" size="10" />
+				</div>
+			</section>
+			
+			<section>
+				<label id="inputCommentsLabel" for="inputComments" class="control-label">&{'invoice.add.comments'}</label>
+				<div>
+			    	<textarea id="inputComments" class="g5" name="invoice.comments" ></textarea>
+			    </div>
+			</section>
+			
+			<section>
+				<div>
+					<button class="submit" name="submitbuttonname" value="submitbuttonvalue">&{'invoice.buttons.add'}</button>
+					&{'invoice.add.or'} <a href="@{Invoices.index()}">&{'invoice.add.return'}</a>
+				</div>
+			</section>
+		</fieldset>
+	#{/form}
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#inputDate').wl_Date({ dateFormat: "&{'format.datepicker'}" });	
+		
+	});
+
+</script>

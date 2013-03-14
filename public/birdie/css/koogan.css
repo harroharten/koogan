@@ -1,0 +1,23 @@
+
+form > section.hidden {
+	display:none;
+}
+
+.checkboxes label
+{
+    display: block;
+    float: left;
+    padding-right: 20px;
+    white-space: nowrap;
+}
+
+.checkboxes input
+{
+    vertical-align: middle;
+    width:0px;
+}
+
+.checkboxes label span
+{
+    vertical-align: middle;
+}

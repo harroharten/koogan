@@ -1,0 +1,145 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme") == "starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="#">&{'invoice.buttons.add'}</a></li>
+	</ul><!--maintabmenu-->
+	
+	<div class="content">
+		<a class="btn btn_list radius50" href="@{Invoices.index()}"><span>&{'invoice.buttons.list'}</span></a>
+		<p>&nbsp;</p>
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'invoice.buttons.add'}</span>
+			</h2>
+		</div>
+		<fieldset>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+	<div class="g12">
+	
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Invoices.index()}">
+					<span class="i_book">&{'invoice.buttons.list'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					&{'invoice.buttons.add'}
+				</a>
+			</li>
+		</ul>
+		<a class="btn small fr i_magnifying_glass icon" href="@{Invoices.index()}">&{'invoice.buttons.list'}</a>
+		<p>&nbsp;</p>
+		<fieldset>
+			<label>&{'invoice.buttons.add'}</label>
+#{/else}
+
+
+	#{form @Invoices.insert(), method:'POST', enctype:'multipart/form-data', class:'well form-horizontal'}
+
+
+			<section>
+				<label id="inputLastNameLabel" for="inputLastName" class="control-label">&{'invoice.add.invoiceNumber'}</label>
+				<div>
+			    	<input type="text" name="invoice.invoiceNumber" id="inputNumber" class="g1" />
+				</div>
+			</section>
+			
+			<section>
+				<label id="inputDateLabel" for="inputDate" class="control-label">&{'invoice.add.dateCreated'}</label>
+			    <div>
+			    	<input type="text" name="invoice.dateCreated" id="inputDate" size="10" />
+			    </div>
+			</section>
+			<section>
+				<label id="inputLabelLabel" for="inputLabel" class="control-label">&{'invoice.add.label'}</label>
+				<div>
+			    	<textarea id="inputLabel" class="g5" name="invoice.label" ></textarea>
+			    </div>
+			</section>
+			<section>
+				<label id="globalInputStatus" for="inputStatus" class="control-label">&{'invoice.add.contact'}</label>
+				<div>
+					#{select "invoice.contact.id", items:models.Contact.findByCurrentUser(), id:'globalInputStatus' /}
+				</div>
+			</section>
+			
+				<section id="line0">
+					<label id="globalInputStatus" for="inputStatus" class="control-label">&{'invoice.add.invoice_line'}</label>
+					<div>
+						<input type="text" name="lines[0].description" id="inputLine0Description" class="g3"/>
+						<input type="text" name="lines[0].quantity" id="quantity" size="10" onKeyup="javascript:sumTotalLine(0)" />
+						<input type="text" name="lines[0].unitPrice" id="unitPrice" size="10" onKeyup="javascript:sumTotalLine(0)" />
+						<input type="text" name="lines[0].price" id="price" size="10" />
+						<a class="btn i_plus icon small" id="addInvoiceLine0" onclick="javascript:addInvoiceLine(0)">&{'invoice.buttons.add.invoice_line'}</a>
+					</div>
+				</section>
+			#{list items:1..30, as:'i'}
+				<section class="hidden" id="line${i}">
+					<label id="globalInputStatus" for="inputStatus" class="control-label">&{'invoice.add.invoice_line'}</label>
+					<div>
+						<input type="text" name="lines[${i}].description" id="inputLine${i}Description" class="g3" />
+						<input type="text" name="lines[${i}].quantity" id="quantity" size="10" onKeyup="javascript:sumTotalLine(${i})" />
+						<input type="text" name="lines[${i}].unitPrice" id="unitPrice" size="10" onKeyup="javascript:sumTotalLine(${i})" />
+						<input type="text" name="lines[0].price" id="price" size="10" />
+						<a class="btn i_plus icon small" id="addInvoiceLine${i}" onclick="javascript:addInvoiceLine(${i})">&{'invoice.buttons.add.invoice_line'}</a>
+					</div>
+				</section>
+			#{/list}
+			
+			
+			<section>
+				<label id="inputTotalAmountLabel" for="inputTotalAmount" class="control-label">&{'invoice.add.totalAmount'}</label>
+				<div>
+					<input type="text" name="invoice.totalAmount" id="inputTotalAmount" size="10" />
+			    </div>
+			</section>
+			
+			
+			<section>
+				<label id="inputCommentsLabel" for="inputComments" class="control-label">&{'invoice.add.comments'}</label>
+				<div>
+			    	<textarea id="inputComments" class="g5" name="invoice.comments" ></textarea>
+			    </div>
+			</section>
+			
+			<section>
+				<div>
+					<button class="submit" name="submitbuttonname" value="submitbuttonvalue">&{'invoice.buttons.add'}</button>
+					&{'invoice.add.or'} <a href="@{Invoices.index()}">&{'invoice.add.return'}</a>
+				</div>
+			</section>
+		</fieldset>
+	#{/form}
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+// 		jQuery('#inputDate').datepicker({ dateFormat: "&{'format.datepicker'}" });
+	});
+	
+	function sumTotalLine(line) {
+		var quantity = jQuery('section#line' + line).find('input[id=quantity]').val();
+		var unitPrice = jQuery('section#line' + line).find('input[id=unitPrice]').val();
+		jQuery('section#line' + line).find('input[id=price]').val(quantity * unitPrice);
+		var totalAmount = 0;
+		jQuery('input[id=price]').each(function (index, domEle) {
+			var amount = jQuery(domEle).val();
+			if (amount != "" && !isNaN(amount)) {
+				totalAmount = parseFloat(totalAmount) + parseFloat(amount);
+			}
+		});
+		jQuery('input#inputTotalAmount').val(totalAmount);
+		
+	}
+	
+	function addInvoiceLine(number) {
+		var lineNumber = number + 1;
+		jQuery('section#line' + lineNumber).removeClass('hidden');
+		jQuery('a#addInvoiceLine' + number).hide();
+	}
+
+</script>

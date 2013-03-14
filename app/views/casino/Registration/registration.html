@@ -1,0 +1,62 @@
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'casino/Secure/layout_tmp.html' /}
+#{/if}
+#{else}
+	#{extends 'casino/Secure/layout_beige.html' /}
+#{/else}
+
+#{set title:'Koogan - Tout gérer, simplement. - Enregistrement' /}
+
+<h1>&{'registration.register_title'}</h1>
+<div class="loginbox radius3">
+	<div class="loginboxinner radius3">
+    	<div class="loginheader">
+    		<h1 class="bebas">&{'registration.register'}</h1>
+        	<div class="logo"><img src="@{'/public/birdie/images/logo.png'}" alt="" /></div>
+    	</div><!--loginheader-->
+        
+        <div class="loginform">
+        	<div class="loginerror"><p>Invalid username or password</p></div>
+#{form @registrationFinish()}
+
+    #{if flash.error}
+        <p class="error">
+            &{flash.error}
+        </p>
+    #{/if}
+    #{if flash.success}
+        <p class="success"> &{flash.success}
+        </p>
+    #{/if}
+   		<fieldset>
+			<p><label for="email" class="bebas">&{'registration.email'}</label>
+				<input type="text" id="email" name="email" class="radius2" autofocus value="${flash.email}">
+				#{ifError 'email'}<span class="error">#{error 'email' /}</span>#{/ifError}
+			</p>
+			<p><label for="password" class="bebas">&{'registration.password'}</label>
+				<input type="password" id="password" name="password" class="radius2">
+				#{ifError 'password'}<span class="error">#{error 'password' /}</span>#{/ifError}
+			</p>
+			<p><label for="confirm" class="bebas">&{'registration.confirm'}</label>
+				<input type="password" id="confirm" name="confirm" class="radius2">
+				#{ifError 'confirm'}<span class="error">#{error 'confirm' /}</span>#{/ifError}
+			</p>
+			<p>
+				<div><input type="checkbox" name="acceptTermsOfService" id="acceptTermsOfService" value="true" ${flash.acceptTermsOfService ? 'checked':''} class="radius2"/>&{'registration.acceptTermsOfService'}</div>
+				#{ifError 'acceptTermsOfService'}<span class="error">#{error 'acceptTermsOfService' /}</span>#{/ifError}<br/>
+			</p>
+			<p>
+				<div>
+					<button class="radius3 bebas">&{'registration.register'}</button>
+				</div>
+			</p>
+			<p>
+				<div>
+					<a class="stdbtn" href="@{Application.index()}">&{'layout.back'}</a>
+				</div>
+			</p>
+		</fieldset>
+#{/form}
+        </div><!--loginform-->
+    </div><!--loginboxinner-->
+</div><!--loginbox-->

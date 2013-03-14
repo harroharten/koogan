@@ -1,0 +1,93 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="#">${account.name}</a></li>
+	</ul><!--maintabmenu-->
+	
+	<div class="content">
+		<a class="btn btn_trash radius50" href="javascript:void(0)" onclick="deleteAccount('${account.id}')"><span>&{'account.buttons.delete'}</span></a>
+		<a class="btn btn_pencil radius50" href="@{Accounts.modify(account.id)}"><span>&{'account.buttons.modify'}</span></a>
+		<a class="btn btn_user radius50" href="@{Accounts.add()}"><span>&{'account.buttons.add'}</span></a>
+		<a class="btn btn_list radius50" href="@{Accounts.index()}"><span>&{'account.buttons.list'}</span></a>
+		<p>&nbsp;</p>
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'account.show.details'}</span>
+			</h2>
+		</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+	<div class="g12">
+	
+	
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Accounts.index()}">
+					<span class="i_buildings">&{'account.buttons.list'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					${account.name}
+				</a>
+			</li>
+		</ul>
+		<a class="btn small fr i_trashcan icon" href="javascript:void(0)" onclick="deleteAccount('${account.id}')">&{'account.buttons.delete'}</a>
+		<a class="btn small fr i_pencil icon" href="@{Accounts.modify(account.id)}">&{'account.buttons.modify'}</a>
+		<a class="btn small fr i_plus icon" href="@{Accounts.add()}">&{'account.buttons.add'}</a>
+		<a class="btn small fr i_magnifying_glass icon" href="@{Accounts.index()}">&{'account.buttons.list'}</a>
+		<p>&nbsp;</p>
+#{/else}
+
+	
+	<div class="tab ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active">
+				<a href="#tabs-1">&{'account.show.details'}</a>
+			</li>
+			<li class="ui-state-default ui-corner-top">
+				<a href="#tabs-2">&{'account.show.quotes'}</a>
+			</li>
+			<li class="ui-state-default ui-corner-top">
+				<a href="#tabs-3">&{'account.show.invoices'}</a>
+			</li>
+			<li class="ui-state-default ui-corner-top">
+				<a href="#tabs-4">&{'account.show.activities'}</a>
+			</li>
+		</ul>
+		<div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="tabs-1">
+			<p>
+				&{'account.show.name'} : ${account.name}<br />
+				&{'account.show.status'} : ${account.status}<br />
+				&{'account.show.salesProcess'} : ${account.salesProcess}<br />
+			</p>
+		</div>
+		<div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-2">
+			<p><h4>&{'account.show.quotes'}</h4></p>
+		</div>
+		<div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-3">
+			<p><h4>&{'account.show.invoices'}</h4></p>
+		</div>
+		<div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-4">
+			<p><h4>&{'account.show.activities'}</h4></p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	
+	function deleteAccount(id) {
+		$.confirm("Etes vous sur de vouloir supprimer ce compte ?",
+			function() {
+				$.get('/account/' + id + '/delete', function(data) {
+					$("#searchCustomersResult").html(data);
+				});
+				$.msg("Compte \"" + id + "\" supprimé !");
+		});
+	}
+		
+</script>

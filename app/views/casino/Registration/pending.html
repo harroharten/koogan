@@ -1,0 +1,9 @@
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'casino/Secure/layout_birdie.html' /}
+#{/if}
+#{else}
+	#{extends 'casino/Secure/layout_beige.html' /}
+#{/else}
+
+
+&{'registration.please_verify_email_address'}

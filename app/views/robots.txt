@@ -1,0 +1,13 @@
+# www.robotstxt.org/
+# http://code.google.com/web/controlcrawlindex/
+	#{if play.Play.id == "war"}
+User-agent: *
+	#{/if}
+	#{elseif play.Play.id == "staging"}
+User-agent: *
+Disallow: /
+	#{/elseif}
+	#{else}
+User-agent: *
+Disallow: /
+	#{/else}

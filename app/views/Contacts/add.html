@@ -1,0 +1,140 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="#">&{'contact.buttons.add'}</a></li>
+	</ul><!--maintabmenu-->
+	
+	<div class="content">
+		<a class="btn btn_list radius50" href="@{Contacts.index()}"><span>&{'contact.buttons.list'}</span></a>
+		<p>&nbsp;</p>
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'contact.buttons.add'}</span>
+			</h2>
+		</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+
+	<div class="g12">
+	
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Contacts.index()}">
+					<span class="i_admin_user">&{'contact.buttons.list'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					&{'contact.buttons.add'}
+				</a>
+			</li>
+		</ul>
+		<a class="btn small fr i_magnifying_glass icon" href="@{Contacts.index()}">&{'contact.buttons.list'}</a>
+		<p>&nbsp;</p>
+#{/else}
+
+
+	#{form @Contacts.insert(), method:'POST', enctype:'multipart/form-data', class:'well form-horizontal'}
+
+		<fieldset>
+			<label>&{'contact.buttons.add'}</label>
+		
+			<section class="g6">
+				<label id="inputLastNameLabel" for="inputLastName" class="control-label">&{'contact.add.name'}</label>
+				<div>
+				    <select id="globalInputCivilTitle" class="" size="1" name="contact.civilTitle">
+					    %{
+				     		for(civilTitle in models.enums.CivilTitle.values()) { 
+						}%
+						     <option>${civilTitle}</option>
+						%{
+						     }
+						}%
+					</select>
+				    <input type="text" name="contact.firstName" id="inputFirstName" class=" placeholder" placeholder="&{'contact.add.firstname'}" />
+				    <input type="text" name="contact.lastName" id="inputLastName" class=" placeholder" placeholder="&{'contact.add.lastname'}"  />
+			    </div>
+			</section>
+			
+			<section class="g6">
+				<label id="inputAccountNameLabel" for="inputAccountName" class="control-label">&{'contact.add.associatedaccount'}</label>
+				<div>
+			    	#{select "account.name", valueProperty:'name', labelProperty:'name', items:models.Account.getAccountsByCurrentUser(), id:'inputAccountName' /}
+			    </div>
+			</section>
+			
+			<section>
+				<label id="inputAdresse1Label" for="inputAdresse1" class="control-label">&{'contact.add.address'}</label>
+				<div>
+			    	<textarea name="contact.address" class="g3" id="inputAdresse"></textarea>
+		    	</div>
+			</section>
+			
+			<section>
+				<label id="inputPostalCodeLabel" for="inputPostalCode" class="control-label">&{'contact.add.postalCode'}</label>
+				<div>
+			    	<input type="text" name="contact.postalCode" id="inputPostalCode" />
+			    </div>
+			</section>
+			
+			<section>
+				<label id="inputCityLabel" for="inputCity" class="control-label">&{'contact.add.city'}</label>
+				<div>
+			    	<input type="text" name="contact.city" id="inputCity" />
+			    </div>
+			</section>
+			
+			<section>
+				<label id="globalInputCountry" for="inputCountry" class="control-label">&{'contact.add.country'}</label>
+				<div>
+					#{select "contact.country", items:models.enums.Country.values(), id:'globalInputCountry' /}
+				</div>
+			</section>
+			
+			<section>
+				<label id="inputEmailLabel" for="inputEmail" class="control-label">&{'contact.add.email'}</label>
+				<div>
+			    	<input type="text" name="contact.email" id="inputEmail" />
+			    </div>
+			</section>
+			
+			<section>
+				<label id="inputPhoneNumberLabel" for="inputPhoneNumber" class="control-label">&{'contact.add.phoneNumber'}</label>
+				<div>
+			    	<input type="text" name="contact.phoneNumber" id="inputPhoneNumber" />
+			    </div>
+			</section>
+			
+			<section>
+				<label id="inputCellphoneNumberLabel" for="inputCellphoneNumber" class="control-label">&{'contact.add.cellphoneNumber'}</label>
+				<div>
+			    	<input type="text" name="contact.cellphoneNumber" id="inputCellphoneNumber" />
+			    </div>
+			</section>
+			
+			<section>
+				<label id="inputFaxNumberLabel" for="inputFaxNumber" class="control-label">&{'contact.add.faxNumber'}</label>
+				<div>
+			   		<input type="text" name="contact.faxNumber" id="inputFaxNumber" />
+			    </div>
+			</section>
+			
+			<section>
+				<label id="inputCommentsLabel" for="inputComments" class="control-label">&{'contact.add.comments'}</label>
+				<div>
+			    	<textarea id="inputComments" class="g5" name="contact.comments" ></textarea>
+			    </div>
+			</section>
+			
+			<section>
+				<div>
+					<button class="submit" name="submitbuttonname" value="submitbuttonvalue">&{'contact.buttons.add'}</button>
+					&{'contact.buttons.or'} <a href="@{Contacts.index()}">&{'contact.buttons.return'}</a>
+				</div>
+			</section>
+		</fieldset>
+	#{/form}
+</div>

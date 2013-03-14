@@ -1,0 +1,61 @@
+#{if session.username}
+	#{if play.Play.configuration.get("default.theme")=="starlight"}
+		#{extends 'main.html' /}
+	#{/if}
+	#{else}
+		#{extends 'main_old.html' /}
+	#{/else}
+#{/if}
+#{else}
+	#{extends 'landing_layout.html' /}
+#{/else}
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+
+	<ul class="maintabmenu">
+		<li class="current"><a href="@{Application.index()}">&{'menu.index'}</a></li>
+	</ul><!--maintabmenu-->
+	
+	
+<div class="content">
+<!-- 	<ul class="breadcrumb"> -->
+<!-- 		<li> -->
+<!-- 			<a href="@{Application.index()}"> -->
+<!-- 				<span class="i_house">&{'menu.index'}</span> -->
+<!-- 			</a> -->
+<!-- 		</li> -->
+<!-- 		<li> -->
+<!-- 			<a class="active" href="#"> -->
+<!-- 				&{'menu.index'} -->
+<!-- 			</a> -->
+<!-- 		</li> -->
+<!-- 	</ul> -->
+
+	<ul class="widgetlist">
+		<li><a href="@{Accounts.add()}" class="account">&{'menu.quickadd.add_account'}</a></li>
+		<li><a href="@{Contacts.add()}" class="contact">&{'menu.quickadd.add_contact'}</a></li>
+		<li><a href="@{Invoices.add()}" class="upload">&{'menu.quickadd.add_invoice'}</a></li>
+		<li><a href="#" class="message">&{'menu.quickadd.add_quote'}</a></li>
+		<li><a href="#" class="events">&{'menu.quickadd.add_event'}</a></li>
+	</ul>
+	
+	<br clear="all" /><br />
+                    
+	<h2>&{'index.intro.welcome.title', session.username}</h2>
+	<p>&{'index.intro.welcome'}</p>
+	<h2>&{'index.intro.definition.title'}</h2>
+	<p>&{'index.intro.definition'}</p>
+	<h2>&{'index.intro.development.title'}</h2>
+	<p>&{'index.intro.development'}</p>
+	<h3>&{'index.intro.changelog.title'}</h3>
+	<ul>
+		<li>2012.05.13 : ajout des factures</li>
+		<li>2012.05.08 : ajout de la modification des Comptes et des contacts</li>
+		<li>2012.05.08 : ajout de la page d'assistance</li>
+		<li>2012.05.01 : Ajout du systeme d'authentification</li>
+		<li>2012.03.18 : Ajout du module de gestion des comptes</li>
+		<li>2012.03.12 : Ajout du thème graphique WhiteLabel</li>
+		<li>2012.03.02 : Ajout du module de gestion des clients</li>
+	</ul>		
+</div>	
+

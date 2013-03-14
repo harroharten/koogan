@@ -1,0 +1,67 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="@{Invoices.index()}">&{'invoice.title'}</a></li>
+	</ul><!--maintabmenu-->
+		
+		
+	<div class="content">
+		<a class="btn btn_book radius50" href="@{Invoices.add()}"><span>&{'invoice.buttons.add'}</span></a>
+		<p>&nbsp;</p>
+		 #{if flash.error}
+			<div class="notification msgalert">
+				<a class="close"></a>
+				<p>&{flash.error}</p>
+			</div>
+	    #{/if}
+		 #{if flash.success}
+			<div class="notification msgsuccess">
+				<a class="close"></a>
+				<p>&{flash.success}</p>
+			</div>
+	    #{/if}
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'invoice.buttons.list'}</span>
+			</h2>
+		</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+
+	<div class="g12">
+	
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Invoices.index()}">
+					<span class="i_admin_user">&{'invoice.title'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					&{'invoice.buttons.list'}
+				</a>
+			</li>
+		</ul>
+		<a class="btn small fr i_magnifying_glass icon" href="@{Invoices.add()}">&{'invoice.buttons.add'}</a>
+		<p>&nbsp;</p>
+		 #{if flash.error}
+			<div class="notification msgalert">
+				<a class="close"></a>
+				<p>&{flash.error}</p>
+			</div>
+	    #{/if}
+		 #{if flash.success}
+			<div class="notification msgsuccess">
+				<a class="close"></a>
+				<p>&{flash.success}</p>
+			</div>
+	    #{/if}
+#{/else}
+
+		<div id="searchAccountsResult">
+			#{include 'Invoices/listTable.html' /}
+		</div>
+	</div>

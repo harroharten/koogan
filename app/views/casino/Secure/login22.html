@@ -1,0 +1,45 @@
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'casino/Secure/layout_birdie.html' /}
+#{/if}
+#{else}
+	#{extends 'casino/Secure/layout_beige.html' /}
+#{/else}
+#{set title:'Koogan - Tout gérer, simplement. - Identification' /}
+<div id="login">
+	
+	#{form @authenticate()}
+		
+		#{if flash.error}
+			<p class="error">
+				&{flash.error}
+			</p>
+		#{/if}
+		#{if flash.success}
+			<p class="success">
+				&{flash.success}
+			</p>
+		#{/if}
+	
+		<fieldset>
+			<section><label for="username">&{'secure.username'}</label>
+				<div><input type="text" id="username" name="username" autofocus></div>
+			</section>
+			<section><label for="password">&{'secure.password'} <a href="@{casino.Registration.lostPassword()}">&{'secure.lostpassword'}</a></label>
+				<div><input type="password" id="password" name="password"></div>
+				<div><input type="checkbox" id="remember" name="remember"><label for="remember" class="checkbox">&{'secure.remember'}</label></div>
+			</section>
+			<section>
+				<div>
+					<button class="submit">&{'secure.signin'}</button>
+				</div>
+			</section>
+			<section>
+				<div>
+					<a class="btn small fr" href="@{Application.index()}">&{'layout.back'}</a>
+					<a class="btn small" href="@{casino.Registration.registration()}">&{'login.register.new.user'}</a>
+				</div>
+			</section>
+		</fieldset>
+	#{/form}
+
+	</div>

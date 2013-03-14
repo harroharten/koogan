@@ -1,0 +1,250 @@
+layout.slogan=Koogan - Tout gérer, simplement.
+layout.footer.content=Tous droits réservés Koogan 2012
+layout.back=Retour à la page d'accueil
+format.datepicker=dd-mm-yy
+
+# Menu items
+menu.index=Accueil
+menu.dashboard=Tableau de bord
+menu.activity=Activités
+menu.account=Comptes
+menu.contact=Contacts
+menu.calendar=Agenda
+menu.invoices=Factures
+menu.quotes=Devis
+menu.help=Assistance
+menu.login=Connexion
+menu.connectedAs=Connecté en tant que
+menu.top.logout=Se déconnecter
+menu.top.account=Mon compte
+menu.top.settings=Ma configuration
+menu.back.to.index=Retour à la page d'accueil
+
+menu.right.last_activities=Activites recentes
+menu.right.last_added=Derniers ajouts
+menu.right.last_added.invoices=Factures
+menu.right.last_added.accounts=Comptes
+menu.right.last_added.contacts=Contacts
+menu.right.calendar=Agenda
+menu.search.title=Recherche
+
+menu.quickadd.title=Ajout rapide
+menu.quickadd.add_account=Ajouter un compte
+menu.quickadd.add_contact=Ajouter un contact
+menu.quickadd.add_quote=Ajouter un devis
+menu.quickadd.add_invoice=Ajouter une facture
+menu.quickadd.add_event=Ajouter un évenement
+
+# Index page
+index.intro.definition.title=Qu'est ce que Koogan ?
+index.intro.definition=<b>Koogan</b> est une application simple et complète pour gérer le quotidien des petites structures Françaises (auto-entrepreneurs, artisans, TPE, etc..). Cet outil permettra de gérer la base client/prospect, les devis/facturations et l'agenda/rendez-vous.<br /><br />
+
+index.intro.welcome.title=Bienvenue aventurier !
+index.intro.welcome=Koogan est encore en phase de développement. Il reste encore beaucoup à faire. Les comptes et les contacts sont finis, la facturation est en cours et le reste n'est pas commencé. Après avoir tester un peu, il est important de m'envoyer un mail pour me donner tes impressions. Merci d'avance !<br /><br />
+index.intro.development.title=Quand sera disponible Koogan ?
+index.intro.development=Koogan est actuellement en début de développement. Il est encore trop tot pour donner une date de sortie. Nous vous tiendrons régulièrement informé.<br /><br />
+index.intro.changelog.title=Changelog
+
+# Dashboard page
+dashboard.intro.development=Le "Tableau de bord" est en cours de développement. Cette page n'est pour le moment qu'une démonstration statique avec des données fictives.<br /><br />
+
+# Help page
+help.form.name=Votre nom
+help.form.email=Votre email
+help.form.message=Votre message
+help.form.send=Envoyer votre message
+help.form.error=Merci de remplir tous les champs
+help.form.success=Votre message a été correctement envoyé.
+
+help.message.intro=Vous avez recu un message de koogan.net
+help.message.sent_this_message=vous a envoyé ce message:
+help.message.subject=Message from Koogan de la part de %s
+
+
+### Activities Pages ###
+activity.title=Gestion des activités
+activity.buttons.list=Liste des activités
+activity.buttons.add=Ajouter une activité
+
+### Account Pages ###
+account.title=Gestion des comptes
+account.buttons.list=Liste des comptes
+account.buttons.add=Ajouter un compte
+account.buttons.modify=Modifier ce compte
+account.buttons.delete=Supprimer ce compte
+account.buttons.or=ou
+account.buttons.return=Retourner à la liste des comptes
+
+account.show.details=Détails de ce compte
+account.show.quotes=Devis
+account.show.invoices=Factures
+account.show.activities=Activités
+account.show.name=Nom
+account.show.status=Status
+account.show.salesProcess=Etape du contact
+account.show.notfound=Le compte avec l'id "%s" n'existe pas. Il est possible que cette fiche ait été supprimée.
+
+account.list.name=Nom du compte
+account.list.status=Status du compte
+account.list.actions=Actions
+
+account.add.name=Nom
+account.add.status=Status
+account.add.salesProcess=Etape du contact
+account.add.or=ou
+account.add.return=Retourner à la liste des comptes
+
+# Contact Pages
+
+contact.title=Gestion des contacts
+contact.buttons.add=Ajouter un contact
+contact.buttons.delete=Supprimer ce contact
+contact.buttons.modify=Modifier ce contact
+contact.buttons.list=Liste des contacts
+contact.buttons.or=ou
+contact.buttons.return=Retourner à la liste des contacts
+
+contact.add.name=Nom
+contact.add.firstname=Prénom
+contact.add.lastname=Nom de famille
+contact.add.associatedaccount=Compte associé
+contact.add.account=Compte
+contact.add.address=Adresse
+contact.add.postalCode=Code postal
+contact.add.city=Ville
+contact.add.country=Pays
+contact.add.email=Email
+contact.add.phoneNumber=Numéro de téléphone
+contact.add.cellphoneNumber=Numéro de portable
+contact.add.faxNumber=Numéro de fax
+contact.add.comments=Notes
+
+contact.list.name=Nom du contact
+contact.list.phone_number=Numéro de téléphone du contact
+contact.list.email=Courriel du contact
+contact.list.account=Compte associé au contact
+contact.list.actions=Actions
+
+contact.show.details=Détails de ce contact
+contact.show.quotes=Devis
+contact.show.invoices=Factures
+contact.show.history=Historique
+contact.show.notfound=Le contact avec l'id "%s" n'existe pas. Il est possible que cette fiche ait été supprimée.
+
+# Invoices pages
+invoice.title=Gestion des factures
+invoice.buttons.list=Liste des factures
+invoice.buttons.add=Ajouter une facture
+invoice.buttons.modify=Modifier cette facture
+invoice.buttons.delete=Supprimer cette facture
+invoice.buttons.add.invoice_line=Ajouter une ligne de facturation
+
+invoice.add.invoiceNumber=Numéro de facture
+invoice.add.dateCreated=Date de facturation
+invoice.add.contact=Contact
+invoice.add.invoice_line=Ligne de facturation
+invoice.add.invoice_line.description=Désignation du produit ou service
+invoice.add.invoice_line.quantity=Quantité
+invoice.add.invoice_line.unitPrice=Prix unitaire
+invoice.add.totalAmount=Montant total
+invoice.add.comments=Commentaire
+invoice.add.or=ou
+invoice.add.return=Annuler et retourner à la liste des factures
+
+invoice.show.invoiceNumber=Facture #%s du %s
+invoice.show.number=Numéro de facture
+invoice.show.notfound=La facture #%s n'existe pas. Il est possible qu'elle ait été supprimée.
+
+
+invoice.list.invoiceNumber=Numéro de facture
+invoice.list.dateCreated=Date de facturation
+invoice.list.contact=Contact
+invoice.list.amount=Montant
+invoice.list.totalAmount=Montant total
+invoice.list.invoiceDetails=Lignes de facturation
+invoice.list.comments=Commentaire
+invoice.list.actions=Actions
+
+### VALIDATION ###
+validation.required=Champ requis
+validation.email=Email invalide
+validation.minSize=Nombre de caractère minimum : %2$d
+
+### Landing page ###
+landing.head.slogan=Koogan, tout gérer, simplement.
+landing.head.contact=Logiciel made in France
+landing.slider.titleh1=Toutes vos activités dans un seul logiciel !
+landing.slider.freetryout=Essayez par vous-meme gratuitement
+landing.slider.your_name=Votre nom
+landing.slider.your_email=Votre email
+landing.slider.button.register=Essai gratuit
+landing.slider.button.register2=Sans engagement
+landing.slider.button.login=S'identifier
+landing.slider.button.login2=Dejà membre ?
+landing.slider.titleh3=Profitez des avantages d'internet
+landing.slider.description=Koogan est un logiciel en ligne complet, disponible ou que vous soyez. Koogan s'adapte à vos besoins, vous ne payez que ce que vous utilisez.
+landing.slider.advantage1=Disponible ou que vous soyez
+landing.slider.advantage2=Aucune installation n'est nécessaire 
+landing.slider.advantage3=Centralisation de vos données
+landing.slider.advantage4=Accès Web 100&#37; sécurisé
+landing.slider.advantage5=Sauvegarde quotidienne automatique
+landing.slider.advantage6=Maitrisez vos dépenses
+landing.slider.advantage7=Un support technique disponible et réactif
+
+landing.feature.1.title=Utilisation simplifiée
+landing.feature.2.title=Logiciel complet
+landing.feature.3.title=Dépenses maitrisées
+landing.feature.4.title=Haute sécurité
+
+landing.feature.1.description=Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing, has et omnesque honestatis philosopia.
+landing.feature.2.description=Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing, has et omnesque honestatis philosopia.
+landing.feature.3.description=Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing, has et omnesque honestatis philosopia.
+landing.feature.4.description=Lorem ipsum dolor sit amet, ex al pro eros sonet adipiscing, has et omnesque honestatis philosopia.
+
+
+# ENUMS
+enum.status.PROSPECT=Prospect
+enum.status.ACTIF=Actif
+enum.status.INACTIF=Inactif
+
+
+### CASINO ###
+# Signup
+registration.register_title=Inscription
+registration.email=Email
+registration.password=Mot de passe
+registration.confirm=Mot de passe
+registration.acceptTermsOfService=Accepter les conditions d'utilisation
+registration.register=S'inscrire
+
+# Signup success => check email
+registration.please_verify_email_address=l'email de confirmation a été envoyé. Merci de vérifier votre boite de réception.
+
+# Signup email confirmation text:
+registration.confirmation.greeting=Bonjour
+registration.confirmation.body=Merci de cliquer sur le lien suivant pour valider votre inscription :
+
+# Signup confirm email
+registration.error=Le formulaire contient une ou plusieurs erreurs, merci de le corriger.
+registration.error.user_already_exists=Cet email existe déja dans la base de donnée.
+registration.registration_success=Inscription réussie. Vous etes maintenant connecté sur le site, bonne visite.
+
+# Password recovery
+# login page
+secure.title=Se connecter
+login.register.new.user=S'inscrire
+
+# Password recovery email text:
+registration.lostpassword.email.greeting=Bonjour
+registration.lostpassword.email.body=Merci de cliquer sur le lien suivant pour récuperer votre mot de passe :
+registration.lost_password.title=Mot de passe perdu
+registration.lost_password.recover=Récupérer son mot de passe
+
+secure.title=Se connecter
+secure.username=Nom d'utilisateur
+secure.password=Mot de passe
+secure.remember=Rester connecté
+secure.lostpassword=Mot de passe oublié ?
+secure.signin=Se connecter
+secure.error=Le nom d'utilisateur ou le mot de passe n'est pas correct.
+secure.logout=Vous avez été déconnecté.

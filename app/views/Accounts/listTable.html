@@ -1,0 +1,39 @@
+	
+			
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+<table class="stdtable" cellspacing="0" cellpadding="0" border="0">
+#{/if}
+#{else}
+<table class="datatable">
+#{/else}
+	<thead>
+		<tr>
+			<th class="head0">&{'account.list.name'}</th>
+			<th class="head1">&{'account.list.status'}</th>
+			<th class="head0">&{'account.list.actions'}</th>
+		</tr>
+	</thead>
+	<tbody>
+		#{list accounts, as:'account'}
+		<tr class="gradeX">
+			<td><a href="@{Accounts.show(account.id)}">${account.name}</a></td>
+			<td>${account.status}</td>
+			<td class="c"><a href="javascript:void(0);" onclick="deleteAccount('${account.id}')">X</a></td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+<script type="text/javascript">
+
+
+	function deleteAccount(id) {
+		$.confirm("Etes vous sur de vouloir supprimer ce compte ?",
+			function(){
+				$.get('/account/' + id + '/delete', function(data) {
+					$("#searchAccountsResult").html(data);
+				});
+				$.msg("Compte \"" + id + "\" supprimé !");
+		});
+	}
+		
+</script>

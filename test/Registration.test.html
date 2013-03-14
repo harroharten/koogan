@@ -1,0 +1,114 @@
+////////////////////////////////////////////////////////////////////////////////
+// Tests:
+// - login / logout
+// - registration of new user with subseauent login
+// - password forgotten function
+// => is tested on one domain (functionality of signing two domains is not tested)
+
+#{fixture delete:'all'/}
+#{selenium 'Registration'}
+
+    //test registration
+    clearSession()
+    open('/Dashboard/index')
+    
+    assertTextPresent('&{'secure.remember'}') 
+    clickAndWait('link=&{'login.register.new.user'}')
+    
+    assertTextPresent('&{'registration.register_title'}')
+    //enter invalid email:
+    type('email', 'test')
+    type('password', 'test')
+    type('confirm', 'test')
+    clickAndWait('//button[@class="submit"]')
+    
+    //expect that error is shown
+    assertTextPresent('&{'registration.error'}')  
+    
+    //now we are entering a correct email - BUT we do not click the TOS checkbox
+    type('email', 'test@test.com')
+    type('password', 'test')
+    type('confirm', 'test')
+    clickAndWait('//button[@class="submit"]')
+    
+    //expect that error is shown => accept terms of service
+    assertTextPresent('Must be checked')  
+    
+    
+    //now we are entering two different passwords
+    type('email', 'test@test.com')
+    type('password', 'PASSWORD')
+    type('confirm', 'WRONGPASSWORD')
+    check('acceptTermsOfService')
+    clickAndWait('//button[@class="submit"]')
+    
+    assertTextPresent('&{'registration.error'}') 
+    
+    
+    //now we are entering a correct email and check tos 
+    //BUT NOW: the password is toooo short...
+    type('email', 'test@test.com')
+    type('password', 'test')
+    type('confirm', 'test')
+    check('acceptTermsOfService')
+    clickAndWait('//button[@class="submit"]')
+    
+    assertTextPresent('Minimum size is 8') 
+    
+    
+    //now we are entering a correct email and check tos => everythings okay...
+    type('email', 'test@test.com')
+    type('password', 'the_correct_password')
+    type('confirm', 'the_correct_password')
+    check('acceptTermsOfService')
+    clickAndWait('//button[@class="submit"]')
+    
+    //check that email was sent to test@test.com
+    storeLastReceivedEmailBy('test@test.com', 'email')
+    store('javascript{/http:[^\s]+/.exec(storedVars["email"])[0]}', 'confirmationUrl')
+    open($[confirmationUrl])
+    assertTextPresent('&{'registration.registration_success'}')  
+       
+<!--     //Oops. Now the user lost the password. -->
+<!--     clearSession() -->
+<!--     open('http://localhost:9000/registration/lostpassword') -->
+<!--     type('email', 'test@test.com') -->
+<!--     clickAndWait('//button[@class="submit"]') -->
+    
+<!--     //okay check that there is a confirmation message -->
+<!--     storeLastReceivedEmailBy('test@test.com', 'email') -->
+<!--     store('javascript{/http:[^\s]+/.exec(storedVars["email"])[0]}', 'confirmationUrl') -->
+    
+
+    
+    
+<!--     //cool. open the link url => BUT PW is too short... -->
+<!--     open($[confirmationUrl]) -->
+<!--     //and enter a new password -->
+<!--     // bad token authenticity ?? -->
+<!--     type('password', 'shortpw') -->
+<!--     type('passwordConfirm', 'shortpw') -->
+<!--     clickAndWait('//button[@class="submit"]') -->
+    
+<!--     //and check that there is success setting the pw :) -->
+<!--     assertTextPresent('Minimum size is 8') -->
+
+<!--     //cool. open the link url -->
+<!--     open($[confirmationUrl]) -->
+<!--     //and enter a new password -->
+<!--     type('password', 'newpassword') -->
+<!--     type('passwordConfirm', 'newpassword') -->
+<!--     clickAndWait('//button[@class="submit"]') -->
+    
+<!--     assertTextPresent('jupp') -->
+    
+    //and now log in with new password:
+    clearSession()
+    open('/Dashboard/index')
+    type('username', 'test@test.com')
+    type('password', 'the_correct_password')
+    clickAndWait('//button[@class="submit"]')
+    assertTextPresent('test@test.com')
+
+#{/selenium}
+#{fixture delete:'all'/}

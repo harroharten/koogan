@@ -1,0 +1,73 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="@{Accounts.index()}">&{'account.buttons.add'}</a></li>
+	</ul><!--maintabmenu-->
+	
+	<div class="content">
+		<a class="btn btn_list radius50" href="@{Accounts.index()}"><span>&{'account.buttons.list'}</span></a>
+	<p>&nbsp;</p>
+	<div class="contenttitle">
+		<h2 class="widgets">
+			<span>&{'account.buttons.add'}</span>
+		</h2>
+	</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+	<div class="g12">
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Accounts.index()}">
+					<span class="i_buildings">&{'account.buttons.list'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					&{'account.buttons.add'}
+				</a>
+			</li>
+		</ul>
+		<a class="btn small fr i_magnifying_glass icon" href="@{Accounts.index()}">&{'account.buttons.list'}</a>
+		<p>&nbsp;</p>
+#{/else}
+
+	
+
+	#{form @Accounts.insert(), method:'POST', enctype:'multipart/form-data', class:'well form-horizontal'}
+		<fieldset>
+			<label>&{'account.buttons.add'}</label>
+
+
+			<section>
+				<label id="inputLastNameLabel" for="inputLastName" class="control-label">&{'account.add.name'}</label>
+				<div>
+			    	<input type="text" name="account.name" id="inputName" class="g3" />
+		    	</div>
+			</section>
+			
+			<section>
+				<label id="globalInputStatus" for="inputStatus" class="control-label">&{'account.add.status'}</label>
+				<div>
+					#{select "account.status", items:models.enums.Status.values(), id:'globalInputStatus' /}
+				</div>
+			</section>
+			
+			<section>
+				<label id="globalInputStatus" for="inputStatus" class="control-label">&{'account.add.salesProcess'}</label>
+				<div>
+					#{select "account.salesProcess", items:models.enums.SalesProcess.values(), id:'globalInputStatus' /}
+				</div>
+			</section>
+			
+			<section>
+				<div>
+					<button class="submit" name="submitbuttonname" value="submitbuttonvalue">&{'account.buttons.add'}</button>
+					&{'account.add.or'} <a href="@{Accounts.index()}">&{'account.add.return'}</a>
+				</div>
+			</section>
+		</fieldset>
+	#{/form}
+</div>

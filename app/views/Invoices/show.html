@@ -1,0 +1,76 @@
+#{set title:'Koogan - Tout gérer, simplement.' /}
+
+#{if play.Play.configuration.get("default.theme")=="starlight"}
+	#{extends 'main.html' /}
+	<ul class="maintabmenu">
+		<li class="current"><a href="@{Invoices.index()}">&{'invoice.title'}</a></li>
+	</ul><!--maintabmenu-->
+		
+		
+	<div class="content">
+		<a class="btn btn_trash radius50" href="javascript:void(0)" onclick="deleteInvoice('${invoice.id}')"><span>&{'invoice.buttons.delete'}</span></a>
+		<a class="btn btn_pencil radius50" href="@{Invoices.modify(invoice.id)}"><span>&{'invoice.buttons.modify'}</span></a>
+		<a class="btn btn_book radius50" href="@{Invoices.add()}"><span>&{'invoice.buttons.add'}</span></a>
+		<a class="btn btn_list radius50" href="@{Invoices.index()}"><span>&{'invoice.buttons.list'}</span></a>
+		<p>&nbsp;</p>
+		<div class="contenttitle">
+			<h2 class="widgets">
+				<span>&{'invoice.show.invoiceNumber', invoice.invoiceNumber, invoice.dateCreated?.format()}</span>
+			</h2>
+		</div>
+#{/if}
+#{else}
+	#{extends 'main_old.html' /}
+	<div class="g12">
+		<ul class="breadcrumb">
+			<li>
+				<a href="@{Invoices.index()}">
+					<span class="i_book">&{'invoice.buttons.list'}</span>
+				</a>
+			</li>
+			<li>
+				<a class="active" href="#">
+					&{'invoice.show.invoiceNumber', invoice.invoiceNumber, invoice.dateCreated?.format()}
+				</a>
+			</li>
+		</ul>
+		
+		<a class="btn small fr i_trashcan icon" href="javascript:void(0)" onclick="deleteInvoice('${invoice.id}')">&{'invoice.buttons.delete'}</a>
+		<a class="btn small fr i_pencil icon" href="@{Invoices.modify(invoice.id)}">&{'invoice.buttons.modify'}</a>
+		<a class="btn small fr i_plus icon" href="@{Invoices.add()}">&{'invoice.buttons.add'}</a>
+		<a class="btn small fr i_magnifying_glass icon" href="@{Invoices.index()}">&{'invoice.buttons.list'}</a>
+		<p>&nbsp;</p>
+#{/else}
+
+
+	
+	<div>
+		<p>
+			&{'invoice.show.invoiceNumber', invoice.invoiceNumber, invoice.dateCreated?.format()}<br />
+			&{'invoice.show.contact'} : <a href="@{Contacts.show(invoice.contact?.id)}">${invoice.contact?.firstName} ${invoice.contact?.lastName}</a><br />
+			
+			<ul>
+			#{list items:invoice.invoiceDetails, as:'line'}
+				<li>${line.description} - ${line.unitPrice} ${line.quantity}</li>
+			#{/list}
+			</ul>
+			
+			&{'invoice.show.comments'} : ${invoice.comments}<br />
+		</p>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	
+	function deleteInvoice(id) {
+		$.confirm("Etes vous sur de vouloir supprimer cette facture ?",
+			function(){
+				$.get('/contact/' + id + '/delete', function(data) {
+					$("#searchContactsResult").html(data);
+				});
+				$.msg("contact \"" + id + "\" supprim� !");
+		});
+	}
+		
+</script>
